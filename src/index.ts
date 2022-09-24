@@ -1,4 +1,4 @@
-import { Application, Sprite } from 'pixi.js'
+import { Application, TextStyle, Text } from 'pixi.js'
 
 const app = new Application({
 	view: document.getElementById("pixi-canvas") as HTMLCanvasElement,
@@ -9,11 +9,13 @@ const app = new Application({
 	height: 480
 });
 
-const clampy: Sprite = Sprite.from("clampy.png");
 
-clampy.anchor.set(0.5);
+const styly = new TextStyle({
+	align: "center",
+	fill: "#754c24",
+	fontSize: 42
+});
+const texty: Text = new Text('私に気づいて先輩！', styly); // Text supports unicode!
+//texty.text = "This is expensive to change, please do not abuse";
 
-clampy.x = app.screen.width / 2;
-clampy.y = app.screen.height / 2;
-
-app.stage.addChild(clampy);
+app.stage.addChild(texty);
